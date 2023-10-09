@@ -8,7 +8,6 @@ const PrivateRoute: React.FC = () => {
   const accessToken: string | null = useAppSelector(
     (state) => state.user.accessToken
   );
-  console.log("🚀 ~ file: PrivateRoutes.tsx:11 ~ accessToken:", accessToken);
 
   useEffect(() => {
     const userId = getUserId();

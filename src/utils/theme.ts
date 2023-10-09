@@ -6,7 +6,25 @@ let theme = createTheme({
   typography: {
     fontFamily: "Public Sans, sans-serif",
   },
-  components: {},
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          lineHeight: 1.5,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+          "&:hover": {
+            boxShadow: "none",
+          },
+        },
+      },
+    },
+  },
 });
 
 theme = responsiveFontSizes(theme);

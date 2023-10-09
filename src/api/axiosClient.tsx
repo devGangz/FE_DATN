@@ -3,11 +3,11 @@ import { clearStorage, getAccessToken } from "../utils/storage";
 import { toast } from "sonner";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-    "Content-Type": "application/json",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
   },
   withCredentials: true,
 });

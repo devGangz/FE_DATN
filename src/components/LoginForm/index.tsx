@@ -1,6 +1,3 @@
-"use client";
-
-import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -19,6 +16,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import InputField from "../InputField";
 import { LoginPayload } from "../../types/auth";
 import { Link } from "react-router-dom";
+import CustomButton from "../CustomButton.tsx";
+import App from "../../App";
+import { AppColor } from "../../constants/color";
 
 interface LoginFormProps {
   onSubmit?: (payload: LoginPayload) => void;
@@ -95,7 +95,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         </Typography>
       </Stack>
 
-      <Button
+      <CustomButton
         disabled={isSubmitting}
         startIcon={
           isSubmitting ? (
@@ -105,10 +105,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         type="submit"
         variant="contained"
         fullWidth
-        sx={{ mt: 3 }}
+        sx={{ mt: 3, fontWeight: "700", color: `${AppColor.white}` }}
       >
         Login
-      </Button>
+      </CustomButton>
     </Stack>
   );
 };

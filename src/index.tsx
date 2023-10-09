@@ -9,21 +9,26 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 import { CssBaseline } from "@mui/material";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <CssBaseline />
-          <App />
-          <Toaster richColors />
-        </Provider>
-      </ThemeProvider>
-    </Router>
+    <GoogleOAuthProvider
+      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID ?? ""}
+    >
+      <Router>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <CssBaseline />
+            <App />
+            <Toaster richColors />
+          </Provider>
+        </ThemeProvider>
+      </Router>
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 
