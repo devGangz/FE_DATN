@@ -5,6 +5,6 @@ const PublicRoute: React.FC = () => {
   const accessToken: string | null = useAppSelector(
     (state) => state.user.accessToken
   );
-  return !accessToken ? <Outlet /> : <Navigate to="/app/home" />;
+  return !accessToken ? <Outlet /> : <Navigate to="/app/admin" />;
 };
 export default PublicRoute;

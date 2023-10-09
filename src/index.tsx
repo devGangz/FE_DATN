@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
+import { CssBaseline } from "@mui/material";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,8 +18,9 @@ root.render(
     <Router>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <Toaster richColors />
+          <CssBaseline />
           <App />
+          <Toaster richColors />
         </Provider>
       </ThemeProvider>
     </Router>
