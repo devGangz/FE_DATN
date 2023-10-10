@@ -1,4 +1,13 @@
-import { Avatar, IconButton, Menu, Toolbar, Typography } from "@mui/material";
+import {
+  Avatar,
+  Container,
+  Divider,
+  IconButton,
+  Menu,
+  Stack,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useAppSelector } from "../../redux/hook/useTypedSeletor";
 import { Box } from "@mui/system";
@@ -6,6 +15,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DiaLogNavbar from "../Dialog";
 import { deepOrange } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import { AppColor } from "../../constants/color";
+import Search from "../Search";
+import SearchHeader from "../Search";
+import HeaderRight from "../HeaderRight";
 
 interface NavigationProps {
   open: boolean;
@@ -27,116 +40,91 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
   };
 
   return (
-    <Box
-      bgcolor={"white"}
-      sx={{
-        boxShadow: "0px 2px 20px rgba(1, 41, 112, 0.1)",
-        display: "flex",
-        height: "64px",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <Toolbar
-        sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}
+    <>
+      <Box
+        bgcolor={"white"}
+        sx={{
+          display: "flex",
+          minHeight: "120px",
+          justifyContent: "space-between",
+          alignItems: "center",
+          bgcolor: `${AppColor.black}`,
+        }}
       >
-        <Menu
-          sx={{ pt: "45px", pr: "48px" }}
-          id="menu-appbar"
-          anchorEl={anchorElUser}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          open={Boolean(anchorElUser)}
-          onClose={handleCloseUserMenu}
-        >
-          <Box
-            onClick={handleCloseUserMenu}
-            sx={{ backgroundColor: "#fff", padding: "0" }}
-          >
-            <DiaLogNavbar />
-          </Box>
-        </Menu>
-        <Box
-          onClick={() => {
-            navigator("/app/home");
-          }}
-          display={"flex"}
-          alignItems={"center"}
-          sx={{ cursor: "pointer" }}
-        >
-          <IconButton
-            size="medium"
-            edge="start"
-            color="primary"
-            aria-label="menu"
-            onClick={() => setOpen(!open)}
+        <Container>
+          <Toolbar
             sx={{
-              mr: 2,
-              display: { xs: "flex", lg: "none" },
-              "&:hover": {
-                backgroundColor: "#222",
-              },
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+              color: AppColor.white,
             }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Avatar
-            sx={{ width: 24, height: 24 }}
-            variant="square"
-            src="../images/logo.svg"
-            alt="logo"
-          />
-          <Typography
-            sx={{
-              fontSize: 16,
-              fontWeight: 700,
-              lineHeight: 1,
-              paddingLeft: 1,
-              color: "green",
-            }}
-          >
-            KIỂM ĐỊNH CHẤT LƯỢNG ĐÀO TẠO
-          </Typography>
-        </Box>
-
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="account"
-          onClick={handleOpenUserMenu}
-          sx={{ p: "1px" }}
-        >
-          {user?.avatar ? (
-            <Avatar
-              sx={{
-                width: { xs: "30px", lg: "40px" },
-                height: { xs: "30px", lg: "40px" },
+            <Box
+              onClick={() => {
+                navigator("/home");
               }}
-              src={user.avatar}
-              alt="avatar"
-            />
-          ) : (
-            <Avatar
+              display={"flex"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer", flex: 1, pr: "40px" }}
+            >
+              <Avatar
+                sx={{ width: "100%", height: "auto" }}
+                variant="square"
+                src="../images/logoHeader.svg"
+                alt="logo"
+              />
+            </Box>
+
+            <Box flex={3}>
+              <SearchHeader />
+            </Box>
+
+            <Box flex={2}>
+              <HeaderRight />
+            </Box>
+          </Toolbar>
+        </Container>
+      </Box>
+      <Container
+        sx={{
+          minHeight: "40px",
+          display: "flex",
+          alignItems: "center",
+          bgcolor: "red",
+          padding: "0",
+        }}
+      >
+        <Stack direction={"row"} justifyContent={"flex-start"}>
+          <Box width={"280px"}>
+            <Typography
               sx={{
-                bgcolor: deepOrange[500],
-                width: { xs: "30px", lg: "40px" },
-                height: { xs: "30px", lg: "40px" },
+                fontSize: "16px",
+                fontWeight: "700",
+                textTransform: "uppercase",
+                color: AppColor.white,
               }}
             >
-              {user?.gmail.charAt(0).toUpperCase()}
-            </Avatar>
-          )}
-        </IconButton>
-      </Toolbar>
-    </Box>
+              Danh mục sản phẩm
+            </Typography>
+          </Box>
+          <Divider orientation="vertical" flexItem />
+          <Box width={"280px"}>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                fontWeight: "700",
+                textTransform: "uppercase",
+                color: AppColor.white,
+              }}
+            >
+              Danh mục sản phẩm
+            </Typography>
+          </Box>
+          <Divider orientation="vertical" flexItem />
+        </Stack>
+      </Container>
+    </>
   );
 };
 

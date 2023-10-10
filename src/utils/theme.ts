@@ -7,6 +7,31 @@ let theme = createTheme({
     fontFamily: "Public Sans, sans-serif",
   },
   components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "md",
+      },
+      styleOverrides: {
+        maxWidthSm: {
+          maxWidth: "680px",
+
+          "@media(min-width: 600px)": {
+            maxWidth: "680px",
+          },
+        },
+        maxWidthMd: {
+          maxWidth: "1650px",
+
+          "@media(min-width: 900px)": {
+            maxWidth: "1650px",
+          },
+        },
+        root: {
+          padding: "0",
+        },
+      },
+      variants: [],
+    },
     MuiTypography: {
       styleOverrides: {
         root: {
@@ -21,6 +46,13 @@ let theme = createTheme({
           "&:hover": {
             boxShadow: "none",
           },
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          padding: "0 !important",
         },
       },
     },

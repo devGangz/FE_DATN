@@ -14,6 +14,6 @@ const PrivateRoute: React.FC = () => {
     // if (userId) dispatch(getUser(userId));
   }, [dispatch]);
 
-  return accessToken ? <Outlet /> : <Navigate to="/login" />;
+  return accessToken ? <Outlet /> : <Navigate to="/home" />;
 };
 export default PrivateRoute;

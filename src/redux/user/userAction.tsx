@@ -8,7 +8,7 @@ export const login = createAsyncThunk(
   "/auth",
   async (param: string, { rejectWithValue }) => {
     try {
-      const { data } = await axiosClient.post("/auth", { token: param });
+      const { data } = await axiosClient.post("/auth/google/callback", param);
       return data;
     } catch (error: any) {
       return rejectWithValue(error?.response.data.message);
