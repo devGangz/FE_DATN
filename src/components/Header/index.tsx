@@ -19,11 +19,15 @@ import { AppColor } from "../../constants/color";
 import Search from "../Search";
 import SearchHeader from "../Search";
 import HeaderRight from "../HeaderRight";
+import SideBar from "../SideBar";
+import MenuHeader from "../MenuHeader";
 
 interface NavigationProps {
   open: boolean;
   setOpen: (value: boolean) => void;
 }
+
+const drawerWidth = "280px";
 
 const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
   const user = useAppSelector((state) => state.user.currentUser);
@@ -86,44 +90,7 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
           </Toolbar>
         </Container>
       </Box>
-      <Container
-        sx={{
-          minHeight: "40px",
-          display: "flex",
-          alignItems: "center",
-          bgcolor: "red",
-          padding: "0",
-        }}
-      >
-        <Stack direction={"row"} justifyContent={"flex-start"}>
-          <Box width={"280px"}>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                color: AppColor.white,
-              }}
-            >
-              Danh mục sản phẩm
-            </Typography>
-          </Box>
-          <Divider orientation="vertical" flexItem />
-          <Box width={"280px"}>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                color: AppColor.white,
-              }}
-            >
-              Danh mục sản phẩm
-            </Typography>
-          </Box>
-          <Divider orientation="vertical" flexItem />
-        </Stack>
-      </Container>
+      <MenuHeader drawerWidth={drawerWidth} />
     </>
   );
 };

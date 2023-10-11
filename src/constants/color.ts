@@ -1,4 +1,5 @@
 export const AppColor = {
+  sidebarButtonColor: "#c8191f",
   blue: "#00a7d5",
   blue1: "#2287E0",
   red: "#f67166",

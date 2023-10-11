@@ -56,6 +56,23 @@ let theme = createTheme({
         },
       },
     },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: "#333",
+          opacity: 0.8,
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          color: "#333",
+          fontWeight: "600",
+          fontSize: "14px",
+        },
+      },
+    },
   },
 });
 
