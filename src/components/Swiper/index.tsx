@@ -17,6 +17,7 @@ export const SwiperSlider = () => {
   return (
     <Swiper
       slidesPerView={1}
+      loop={true}
       pagination={{
         clickable: true,
       }}

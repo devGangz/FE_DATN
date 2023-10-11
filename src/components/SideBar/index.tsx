@@ -1,13 +1,5 @@
+import { Home, PeopleAltOutlined, ReceiptLong } from "@mui/icons-material";
 import {
-  Drafts,
-  Home,
-  Inbox,
-  PeopleAltOutlined,
-  ReceiptLong,
-  SubjectOutlined,
-} from "@mui/icons-material";
-import {
-  Box,
   Divider,
   List,
   ListItem,
@@ -36,63 +28,63 @@ const SideBar: React.FC<SideBarProps> = () => {
     {
       title: "Tin Khuyến Mãi",
       link: "",
-      icon: <Home />,
+      url: "../images/sidebar/tintuc.png",
     },
     {
       title: "Máy Tính Xách Tay",
       link: "",
-      icon: <SubjectOutlined />,
+      url: "../images/sidebar/laptop.png",
     },
 
     {
       title: "Màn Hình Máy Tính",
       link: "",
-      icon: <PeopleAltOutlined />,
+      url: "../images/sidebar/manhinh.png",
     },
     {
       title: "PC Lắp Ráp, Đồng Bộ, AIO",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/pc.png",
     },
     {
       title: "Apple Center",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/apple.png",
     },
     {
       title: "Linh Kiện Máy Tính",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/linhkien.png",
     },
     {
       title: "Phím chuột, gaming gear",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/phimchuot.png",
     },
     {
       title: "Loa, Tai nghe, Webcam, Trợ giảng",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/loatainghe.png",
     },
     {
       title: "Phụ Kiện Công Nghệ",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/phukien.jpg",
     },
     {
       title: "Máy In, Scan, Vật Tư Máy In",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/mayin.png",
     },
     {
       title: "Thiết Bị Mạng",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/mang.png",
     },
     {
       title: "Máy Chiếu, Camera, TBVP",
       link: "",
-      icon: <ReceiptLong />,
+      url: "../images/sidebar/maychieu.png",
     },
   ];
   return (
@@ -113,12 +105,26 @@ const SideBar: React.FC<SideBarProps> = () => {
           <ListItem
             key={page.link}
             disablePadding
-            sx={{ borderRadius: "4px", height: "34px" }}
+            sx={{
+              "&:hover": {
+                bgcolor: AppColor.sidebarButtonColor,
+              },
+            }}
           >
             <NavLink to={page.link} className={"active-navlink"}>
-              <ListItemButton sx={{ gap: 1 }}>
-                <ListItemIcon color="#899bbd" sx={{ minWidth: "24px" }}>
-                  {page.icon}
+              <ListItemButton
+                sx={{
+                  gap: "10px",
+                  padding: "0 0 0 10px",
+                  height: "34px",
+                  color: "red",
+                }}
+              >
+                <ListItemIcon
+                  color="#899bbd"
+                  sx={{ width: "20px", height: "20px", minWidth: "20px" }}
+                >
+                  <img src={`${page.url}`} alt="laptop" />
                 </ListItemIcon>
                 <ListItemText primary={page.title} />
               </ListItemButton>

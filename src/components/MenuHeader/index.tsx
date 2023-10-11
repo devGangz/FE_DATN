@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Divider,
-  Menu,
   Stack,
   styled,
   Typography,
@@ -22,8 +21,19 @@ const BoxStyled = styled(Box)({
   gap: "6px",
 });
 
+const TypographyStyled = styled(Typography)({
+  fontSize: "14px",
+  fontWeight: "500",
+  textTransform: "uppercase",
+  color: AppColor.black,
+  cursor: "pointer",
+  "&:hover": {
+    color: AppColor.sidebarTextColor,
+  },
+});
+
 const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(true);
 
   return (
     <Container
@@ -57,7 +67,7 @@ const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
             pl: "16px",
           }}
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseLeave={() => setIsHovered(true)}
         >
           <MenuIcon sx={{ color: AppColor.white }} />
           <Typography
@@ -81,40 +91,13 @@ const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
         >
           <BoxStyled>
             <img src="../images/hopqua.gif" alt="hopqua" loading="lazy" />
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "500",
-                textTransform: "uppercase",
-                color: AppColor.black,
-              }}
-            >
-              Sắm laptop tựu trường
-            </Typography>
+            <TypographyStyled>Sắm laptop tựu trường</TypographyStyled>
           </BoxStyled>
           <BoxStyled>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "500",
-                textTransform: "uppercase",
-                color: AppColor.black,
-              }}
-            >
-              Màn hình samsung giá chất
-            </Typography>
+            <TypographyStyled>Màn hình samsung giá chất</TypographyStyled>
           </BoxStyled>
           <BoxStyled>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: "500",
-                textTransform: "uppercase",
-                color: AppColor.black,
-              }}
-            >
-              Build PC AMD nhận quà khủng
-            </Typography>
+            <TypographyStyled>Build PC AMD nhận quà khủng</TypographyStyled>
           </BoxStyled>
         </Stack>
       </Stack>

@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { AppColor } from "../constants/color";
 
 // A custom theme for this app
 let theme = createTheme({
@@ -70,6 +71,11 @@ let theme = createTheme({
           color: "#333",
           fontWeight: "600",
           fontSize: "14px",
+          height: "34px",
+          lineHeight: 2.5,
+          "&:hover": {
+            color: AppColor.white,
+          },
         },
       },
     },
