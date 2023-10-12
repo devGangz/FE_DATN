@@ -1,8 +1,6 @@
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Keyboard, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 
 const images = [
   { key: "slider1", url: "../images/slider1.png" },

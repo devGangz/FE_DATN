@@ -1,25 +1,11 @@
-import {
-  Avatar,
-  Container,
-  Divider,
-  IconButton,
-  Menu,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Avatar, Container, Toolbar } from "@mui/material";
 import { useState } from "react";
 import { useAppSelector } from "../../redux/hook/useTypedSeletor";
 import { Box } from "@mui/system";
-import MenuIcon from "@mui/icons-material/Menu";
-import DiaLogNavbar from "../Dialog";
-import { deepOrange } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import { AppColor } from "../../constants/color";
-import Search from "../Search";
 import SearchHeader from "../Search";
 import HeaderRight from "../HeaderRight";
-import SideBar from "../SideBar";
 import MenuHeader from "../MenuHeader";
 
 interface NavigationProps {
@@ -90,7 +76,9 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
           </Toolbar>
         </Container>
       </Box>
-      <MenuHeader drawerWidth={drawerWidth} />
+      <Box bgcolor={AppColor.white}>
+        <MenuHeader drawerWidth={drawerWidth} />
+      </Box>
     </>
   );
 };

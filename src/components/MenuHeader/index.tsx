@@ -38,11 +38,9 @@ const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
   return (
     <Container
       sx={{
-        minHeight: "40px",
         display: "flex",
         alignItems: "center",
         padding: "0",
-        bgcolor: AppColor.white,
       }}
     >
       <Stack
@@ -51,7 +49,7 @@ const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
         gap={1}
         alignItems={"center"}
         width={"100%"}
-        height={"100%"}
+        height={"40px"}
       >
         <Stack
           direction={"row"}

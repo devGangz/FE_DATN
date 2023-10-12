@@ -26,6 +26,11 @@ let theme = createTheme({
           "@media(min-width: 900px)": {
             maxWidth: "1650px",
           },
+
+          "@media(min-width: 600px)": {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
         },
         root: {
           padding: "0",
@@ -78,6 +83,30 @@ let theme = createTheme({
           },
         },
       },
+    },
+    MuiChip: {
+      defaultProps: {
+        variant: "outlined",
+      },
+      styleOverrides: {
+        root: {
+          lineHeight: "normal",
+          minWidth: "50px",
+          borderRadius: "4px",
+          height: "22px",
+          fontSize: "11px",
+        },
+      },
+      variants: [
+        {
+          props: {
+            color: "info",
+          },
+          style: {
+            minWidth: "70px",
+          },
+        },
+      ],
     },
   },
 });
