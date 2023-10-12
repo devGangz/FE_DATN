@@ -4,6 +4,7 @@ import { Stack } from "@mui/system";
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import { AppColor } from "../../constants/color";
+import Footer from "../Footer";
 
 const Layout = (): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false);
@@ -20,6 +21,7 @@ const Layout = (): JSX.Element => {
           <Outlet />
         </Box>
       </Stack>
+      <Footer />
     </Stack>
   );
 };
