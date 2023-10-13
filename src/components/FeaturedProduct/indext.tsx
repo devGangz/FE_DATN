@@ -11,7 +11,7 @@ interface FeaturedProductProps {
 const FeaturedProduct: React.FC<FeaturedProductProps> = ({ title }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
-    <Box sx={{ mt: "8px" }}>
+    <Box component={"section"} sx={{ mt: "8px" }}>
       <Container>
         <Stack
           direction={"row"}

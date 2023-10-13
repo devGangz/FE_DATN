@@ -1,9 +1,17 @@
+import { Box } from "@mui/material";
 import React from "react";
+import FooterContainer from "./FooterContainer";
+import CopyRight from "./CopyRight";
 
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = ({}) => {
-  return <div>Footer</div>;
+  return (
+    <Box component={"footer"} sx={{ marginTop: "20px" }}>
+      <FooterContainer />
+      <CopyRight />
+    </Box>
+  );
 };
 
 export default Footer;

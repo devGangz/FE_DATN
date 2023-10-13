@@ -82,6 +82,14 @@ let theme = createTheme({
             color: AppColor.white,
           },
         },
+        secondary: {
+          color: "#333",
+          fontWeight: "500",
+          fontSize: "14px",
+          "&:hover": {
+            color: AppColor.sidebarTextColor,
+          },
+        },
       },
     },
     MuiChip: {

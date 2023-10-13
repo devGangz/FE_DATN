@@ -12,12 +12,16 @@ const Layout = (): JSX.Element => {
   return (
     <Stack direction="column" bgcolor={"red"} height="100vh">
       <Header open={open} setOpen={setOpen} />
-      <Stack direction={"row"} sx={{ flexGrow: 1 }}>
-        <Box
-          component={"main"}
-          width="100%"
-          sx={{ bgcolor: AppColor.backgroundColor }}
-        >
+      <Stack
+        direction={"row"}
+        component={"main"}
+        sx={{
+          flexGrow: 1,
+          paddingBottom: "30px",
+          bgcolor: AppColor.backgroundColor,
+        }}
+      >
+        <Box component={"main"} width="100%">
           <Outlet />
         </Box>
       </Stack>

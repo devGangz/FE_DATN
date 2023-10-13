@@ -217,7 +217,7 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
             <Typography
               component={"span"}
               variant="body1"
-              sx={{ fontSize: "14px" }}
+              sx={{ fontSize: "14px", textDecorationLine: "line-through" }}
             >
               {`${productList.unprice} đ`}
             </Typography>
