@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Autoplay, Navigation } from "swiper/modules";
-import { Avatar, Chip, Stack, Typography, styled } from "@mui/material";
+import { Avatar, Box, Chip, Stack, Typography, styled } from "@mui/material";
 import { AppColor } from "../../../constants/color";
 import CustomTooltip from "../../Tooltip";
 import { useNavigate } from "react-router-dom";
@@ -159,105 +159,115 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
     >
       {productLists.map((productList) => (
         <SwiperSlide key={productList.key}>
-          <Stack
-            direction={"column"}
-            alignItems={"flex-start"}
+          <Box
             sx={{
-              padding: "0 10px 10px",
+              paddingBottom: "10px",
               bgcolor: AppColor.white,
-              width: "301px",
+              width: "222px",
             }}
           >
-            <CustomTooltip title={`${productList.name}`}>
-              <TypographyStyle
-                onClick={() => navigate("/product-details/" + productList.name)}
-                sx={{
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  className="imageProduct"
-                  src={`${productList.image}`}
-                  alt="manhinh"
+            <Stack
+              direction={"column"}
+              alignItems={"flex-start"}
+              sx={{
+                padding: "0 10px",
+              }}
+            >
+              <CustomTooltip title={`${productList.name}`}>
+                <TypographyStyle
+                  onClick={() =>
+                    navigate("/product-details/" + productList.name)
+                  }
+                  sx={{
+                    cursor: "pointer",
+                  }}
+                >
+                  <img
+                    className="imageProduct"
+                    src={`${productList.image}`}
+                    alt="manhinh"
+                  />
+                </TypographyStyle>
+              </CustomTooltip>
+              <Typography component={"p"} sx={{ height: "40px" }}>
+                <Avatar
+                  component={"a"}
+                  sx={{ width: "auto", height: "unset", maxWidth: "80px" }}
+                  variant="square"
+                  alt="logo"
+                  src={`${productList.logo}`}
                 />
-              </TypographyStyle>
-            </CustomTooltip>
-            <Typography component={"p"} sx={{ height: "40px" }}>
-              <Avatar
-                component={"a"}
-                sx={{ width: "auto", height: "unset", maxWidth: "80px" }}
-                variant="square"
-                alt="logo"
-                src={`${productList.logo}`}
-              />
-            </Typography>
-            <Typography sx={{ marginTop: "25px" }}>
-              <Chip
-                component={"span"}
-                label={`${productList.label}`}
-                sx={{
-                  color: AppColor.white,
-                  bgcolor: AppColor.orange,
-                  border: "none",
-                }}
-              />
-            </Typography>
-            <CustomTooltip title={`${productList.name}`}>
+              </Typography>
+              <Typography sx={{ marginTop: "25px" }}>
+                <Chip
+                  component={"span"}
+                  label={`${productList.label}`}
+                  sx={{
+                    color: AppColor.white,
+                    bgcolor: AppColor.orange,
+                    border: "none",
+                  }}
+                />
+              </Typography>
+              <CustomTooltip title={`${productList.name}`}>
+                <Typography
+                  onClick={() =>
+                    navigate("/product-details/" + productList.name)
+                  }
+                  component={"h4"}
+                  variant="body1"
+                  sx={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    m: "10px 0",
+                    textAlign: "left",
+                    height: "38px",
+                    width: "100%",
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    "-webkit-line-clamp": "2",
+                    "-webkit-box-orient": "vertical",
+                    display: "-webkit-box",
+                    cursor: "pointer",
+                  }}
+                >
+                  {productList.name}
+                </Typography>
+              </CustomTooltip>
               <Typography
-                onClick={() => navigate("/product-details/" + productList.name)}
-                component={"h4"}
+                component={"span"}
+                variant="body1"
+                sx={{ fontSize: "14px", textDecorationLine: "line-through" }}
+              >
+                {`${productList.unprice} đ`}
+              </Typography>
+              <Typography
+                component={"span"}
                 variant="body1"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "21px",
                   fontWeight: "600",
-                  m: "10px 0",
-                  textAlign: "left",
-                  height: "38px",
-                  width: "100%",
-                  textOverflow: "ellipsis",
-                  overflow: "hidden",
-                  "-webkit-line-clamp": "2",
-                  "-webkit-box-orient": "vertical",
-                  display: "-webkit-box",
-                  cursor: "pointer",
+                  color: AppColor.sidebarButtonColor,
                 }}
               >
-                {productList.name}
+                {`${productList.price} đ`}
               </Typography>
-            </CustomTooltip>
-            <Typography
-              component={"span"}
-              variant="body1"
-              sx={{ fontSize: "14px", textDecorationLine: "line-through" }}
-            >
-              {`${productList.unprice} đ`}
-            </Typography>
-            <Typography
-              component={"span"}
-              variant="body1"
-              sx={{
-                fontSize: "21px",
-                fontWeight: "600",
-                color: AppColor.sidebarButtonColor,
-              }}
-            >
-              {`${productList.price} đ`}
-            </Typography>
-            <Typography
-              component={"span"}
-              variant="body1"
-              sx={{
-                fontSize: "12px",
-                marginTop: "10px",
-                width: "100%",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
-            >
-              {productList.promotion}
-            </Typography>
-          </Stack>
+              <Typography
+                component={"span"}
+                variant="body1"
+                sx={{
+                  fontSize: "12px",
+                  marginTop: "10px",
+                  width: "100%",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                }}
+              >
+                {productList.promotion}
+              </Typography>
+            </Stack>
+          </Box>
         </SwiperSlide>
       ))}
     </Swiper>

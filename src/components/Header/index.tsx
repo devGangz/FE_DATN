@@ -65,7 +65,12 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
               }}
               display={"flex"}
               alignItems={"center"}
-              sx={{ cursor: "pointer", flex: 1, pr: "40px" }}
+              sx={{
+                cursor: "pointer",
+                // width: "280px",
+                pr: "40px",
+                flex: 1,
+              }}
             >
               <Avatar
                 className="MagicZoom"
@@ -76,11 +81,11 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
               />
             </Box>
 
-            <Box flex={3}>
+            <Box sx={{ width: "calc(100% - 280px - 33.33%)" }}>
               <SearchHeader />
             </Box>
 
-            <Box flex={2}>
+            <Box sx={{ width: "33.33%" }}>
               <HeaderRight />
             </Box>
           </Toolbar>

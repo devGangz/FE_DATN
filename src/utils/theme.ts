@@ -12,10 +12,19 @@ let theme = createTheme({
       standard: 1000,
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1650,
+    },
+  },
   components: {
     MuiContainer: {
       defaultProps: {
-        maxWidth: "md",
+        maxWidth: "xl",
       },
       styleOverrides: {
         maxWidthSm: {
@@ -25,20 +34,26 @@ let theme = createTheme({
             maxWidth: "680px",
           },
         },
-        maxWidthMd: {
-          maxWidth: "1650px",
+        maxWidthXl: {
+          maxWidth: "750px", // Mặc định cho màn hình dưới 768px
 
-          "@media(min-width: 900px)": {
-            maxWidth: "1650px",
+          "@media (min-width: 768px) and (max-width: 992px)": {
+            maxWidth: "750px", // Cho màn hình từ 768px đến 992px
+          },
+          "@media (min-width: 992px) and (max-width: 1200px)": {
+            maxWidth: "970px", // Cho màn hình từ 992px đến 1200px
           },
 
-          "@media(min-width: 600px)": {
-            paddingLeft: 0,
-            paddingRight: 0,
+          "@media (min-width: 1200px) and (max-width: 1650px)": {
+            maxWidth: "1200px", // Cho màn hình từ 1200px đến 1650px
+          },
+
+          "@media (min-width: 1650px)": {
+            maxWidth: "1650px", // Cho màn hình từ 1650px trở lên
           },
         },
         root: {
-          padding: "0",
+          padding: "0 15px !important",
         },
       },
       variants: [],
