@@ -1,6 +1,5 @@
 import { Avatar, Container, Toolbar } from "@mui/material";
-import { useState } from "react";
-import { useAppSelector } from "../../redux/hook/useTypedSeletor";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { AppColor } from "../../constants/color";
@@ -16,18 +15,28 @@ interface NavigationProps {
 const drawerWidth = "280px";
 
 const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
-  const user = useAppSelector((state) => state.user.currentUser);
   const navigator = useNavigate();
 
-  // set Anchor
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 567) {
+        // Show
+        setShowSidebar(true);
+      } else {
+        // Hide
+        setShowSidebar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -59,6 +68,7 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
               sx={{ cursor: "pointer", flex: 1, pr: "40px" }}
             >
               <Avatar
+                className="MagicZoom"
                 sx={{ width: "100%", height: "auto" }}
                 variant="square"
                 src="../images/logoHeader.svg"
@@ -76,7 +86,14 @@ const Header: React.FC<NavigationProps> = ({ open, setOpen }) => {
           </Toolbar>
         </Container>
       </Box>
-      <Box bgcolor={AppColor.white}>
+      <Box
+        sx={{
+          bgcolor: AppColor.white,
+          width: "100%",
+          position: showSidebar ? "fixed" : "",
+          zIndex: showSidebar ? 111 : "",
+        }}
+      >
         <MenuHeader drawerWidth={drawerWidth} />
       </Box>
     </>

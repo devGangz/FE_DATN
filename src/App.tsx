@@ -6,6 +6,10 @@ import Login from "./pages/login";
 import Layout from "./components/Layout";
 import Admin from "./pages/admin";
 import Home from "./pages/home";
+import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import News from "./pages/News";
+import BuildPC from "./pages/BuildPC";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +24,10 @@ const App: React.FC = () => {
         <Route element={<PublicRoute />}>
           <Route element={<Layout />}>
             <Route path="/home" element={<Home />} />
+            <Route path="/product-details/:id" element={<ProductDetails />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/buildpc" element={<BuildPC />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
         </Route>
       </Routes>

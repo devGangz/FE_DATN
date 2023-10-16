@@ -10,7 +10,7 @@ const Layout = (): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Stack direction="column" bgcolor={"red"} height="100vh">
+    <Stack direction="column" height="100vh">
       <Header open={open} setOpen={setOpen} />
       <Stack
         direction={"row"}

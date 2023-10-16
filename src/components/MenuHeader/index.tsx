@@ -33,7 +33,7 @@ const TypographyStyled = styled(Typography)({
 });
 
 const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
-  const [isHovered, setIsHovered] = useState<boolean>(true);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
     <Container
@@ -65,7 +65,7 @@ const MenuHeader: React.FC<indexProps> = ({ drawerWidth }) => {
             pl: "16px",
           }}
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           <MenuIcon sx={{ color: AppColor.white }} />
           <Typography

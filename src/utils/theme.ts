@@ -7,6 +7,11 @@ let theme = createTheme({
   typography: {
     fontFamily: "Public Sans, sans-serif",
   },
+  transitions: {
+    duration: {
+      standard: 1000,
+    },
+  },
   components: {
     MuiContainer: {
       defaultProps: {

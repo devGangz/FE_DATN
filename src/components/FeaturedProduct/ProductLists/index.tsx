@@ -1,9 +1,10 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Autoplay, Navigation } from "swiper/modules";
-import { Avatar, Chip, Stack, Typography } from "@mui/material";
+import { Avatar, Chip, Stack, Typography, styled } from "@mui/material";
 import { AppColor } from "../../../constants/color";
 import CustomTooltip from "../../Tooltip";
+import { useNavigate } from "react-router-dom";
 
 interface ProductListsProps {
   isHovered?: boolean;
@@ -11,7 +12,7 @@ interface ProductListsProps {
 
 const productLists = [
   {
-    key: "",
+    key: "1",
     image: "../images/manhinh/u2422h.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -24,7 +25,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "2",
     image: "../images/laptop-asus/asus1.jpg",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -37,7 +38,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "3",
     image: "../images/laptop-dell/dell1.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -50,7 +51,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "4",
     image: "../images/laptop-hp/hp1.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -63,7 +64,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "5",
     image: "../images/laptop-lenovo/lenovo1.jpg",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -76,7 +77,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "6",
     image: "../images/laptop-msi/msi1.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -89,7 +90,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "7",
     image: "../images/manhinh/u2422h.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -102,7 +103,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "8",
     image: "../images/manhinh/u2422h.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -115,7 +116,7 @@ const productLists = [
       " 4 Khuyến mãi: Balo đựng laptop chính hãng Asus trị giá 290.000đ",
   },
   {
-    key: "",
+    key: "9",
     image: "../images/manhinh/u2422h.png",
     logo: "../images/logo/dell.png",
     label: "Bán chạy",
@@ -129,7 +130,20 @@ const productLists = [
   },
 ];
 
+const TypographyStyle = styled(Typography)(({ theme }) => ({
+  position: "relative",
+  paddingBottom: "80%",
+  width: "100%",
+  transition: `${theme.transitions.create(["transform"], {
+    duration: theme.transitions.duration.standard,
+  })}`,
+  "&:hover": {
+    transform: "scale(1.1)",
+  },
+}));
+
 const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
+  const navigate = useNavigate();
   return (
     <Swiper
       slidesPerView={5}
@@ -152,19 +166,13 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
               padding: "0 10px 10px",
               bgcolor: AppColor.white,
               width: "301px",
-              cursor: "pointer",
             }}
           >
             <CustomTooltip title={`${productList.name}`}>
-              <Typography
-                component={"a"}
+              <TypographyStyle
+                onClick={() => navigate("/product-details/" + productList.name)}
                 sx={{
-                  position: "relative",
-                  paddingBottom: "80%",
-                  width: "100%",
-                  "&:hover": {
-                    transition: ".3s ease-out",
-                  },
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -172,10 +180,11 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
                   src={`${productList.image}`}
                   alt="manhinh"
                 />
-              </Typography>
+              </TypographyStyle>
             </CustomTooltip>
-            <Typography sx={{ height: "40px" }}>
+            <Typography component={"p"} sx={{ height: "40px" }}>
               <Avatar
+                component={"a"}
                 sx={{ width: "auto", height: "unset", maxWidth: "80px" }}
                 variant="square"
                 alt="logo"
@@ -195,6 +204,7 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
             </Typography>
             <CustomTooltip title={`${productList.name}`}>
               <Typography
+                onClick={() => navigate("/product-details/" + productList.name)}
                 component={"h4"}
                 variant="body1"
                 sx={{
@@ -209,6 +219,7 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
                   "-webkit-line-clamp": "2",
                   "-webkit-box-orient": "vertical",
                   display: "-webkit-box",
+                  cursor: "pointer",
                 }}
               >
                 {productList.name}

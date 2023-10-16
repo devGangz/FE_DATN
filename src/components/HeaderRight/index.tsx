@@ -1,15 +1,8 @@
 import { LaptopChromebook, Newspaper, ShoppingCart } from "@mui/icons-material";
-import {
-  Avatar,
-  Box,
-  Fab,
-  IconButton,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Fab, Stack, Typography, styled } from "@mui/material";
 import React from "react";
 import { AppColor } from "../../constants/color";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderRightProps {}
 
@@ -19,36 +12,42 @@ const BoxStyle = styled(Box)(({ theme }) => ({
   gap: "5px",
   cursor: "pointer",
   alignItems: "center",
+
+  "&:hover": {
+    color: AppColor.sidebarTextColor,
+  },
 }));
 
 const TypographyStyle = styled(Typography)(({ theme }) => ({
   fontSize: "14px",
-  "&:hover": {
-    color: AppColor.red,
-  },
 }));
 
 const FabStyle = styled(Fab)(({ theme }) => ({
   borderRadius: "10px",
 }));
 
-const headerRightArr = [
-  { key: `tintuc`, content: "Tin tức", icon: <Newspaper /> },
-  { key: `xaydungpc`, content: "Xây dựng PC", icon: <LaptopChromebook /> },
-  { key: `giohang`, content: "Giỏ hàng", icon: <ShoppingCart /> },
-];
-
 const HeaderRight: React.FC<HeaderRightProps> = ({}) => {
+  const navigate = useNavigate();
   return (
     <Stack direction={"row"} justifyContent={"flex-end"} gap={3} flex={2}>
-      {headerRightArr.map((header) => {
-        return (
-          <BoxStyle key={header.key}>
-            <FabStyle size="small">{header.icon}</FabStyle>
-            <TypographyStyle>{header.content}</TypographyStyle>
-          </BoxStyle>
-        );
-      })}
+      <BoxStyle onClick={() => navigate("/news")}>
+        <FabStyle size="small">
+          <Newspaper />
+        </FabStyle>
+        <TypographyStyle>Tin tức</TypographyStyle>
+      </BoxStyle>
+      <BoxStyle onClick={() => navigate("/buildpc")}>
+        <FabStyle size="small">
+          <LaptopChromebook />
+        </FabStyle>
+        <TypographyStyle>Xây dựng PC</TypographyStyle>
+      </BoxStyle>
+      <BoxStyle onClick={() => navigate("/cart")}>
+        <FabStyle size="small">
+          <ShoppingCart />{" "}
+        </FabStyle>
+        <TypographyStyle>Giỏ hàng</TypographyStyle>
+      </BoxStyle>
     </Stack>
   );
 };
