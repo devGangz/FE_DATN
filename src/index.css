@@ -213,3 +213,7 @@ a {
   height: 408px;
   max-height: 410px;
 }
+
+.imageMagnify {
+  z-index: 1;
+}

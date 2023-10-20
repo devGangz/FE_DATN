@@ -136,6 +136,13 @@ let theme = createTheme({
         },
       ],
     },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          transition: "none",
+        },
+      },
+    },
   },
 });
 

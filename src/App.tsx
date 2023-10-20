@@ -10,12 +10,14 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import News from "./pages/News";
 import BuildPC from "./pages/BuildPC";
+import Map from "./components/Map";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <Routes>
         <Route path="" element={<Navigate to="/home" replace />} />
+        <Route path="/login" element={<Login />} />
         <Route element={<PrivateRoute />}>
           <Route element={<Layout />}>
             <Route path="/app/admin" element={<Admin />} />

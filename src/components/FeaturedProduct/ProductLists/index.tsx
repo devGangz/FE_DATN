@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 interface ProductListsProps {
   isHovered?: boolean;
+  isProductRelated?: boolean;
 }
 
 const productLists = [
@@ -142,7 +143,10 @@ const TypographyStyle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
+const ProductLists: React.FC<ProductListsProps> = ({
+  isHovered,
+  isProductRelated,
+}) => {
   const navigate = useNavigate();
   return (
     <Swiper
@@ -189,26 +193,31 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
                   />
                 </TypographyStyle>
               </CustomTooltip>
-              <Typography component={"p"} sx={{ height: "40px" }}>
-                <Avatar
-                  component={"a"}
-                  sx={{ width: "auto", height: "unset", maxWidth: "80px" }}
-                  variant="square"
-                  alt="logo"
-                  src={`${productList.logo}`}
-                />
-              </Typography>
-              <Typography sx={{ marginTop: "25px" }}>
-                <Chip
-                  component={"span"}
-                  label={`${productList.label}`}
-                  sx={{
-                    color: AppColor.white,
-                    bgcolor: AppColor.orange,
-                    border: "none",
-                  }}
-                />
-              </Typography>
+              {!isProductRelated && (
+                <>
+                  <Typography component={"p"} sx={{ height: "40px" }}>
+                    <Avatar
+                      component={"a"}
+                      sx={{ width: "auto", height: "unset", maxWidth: "80px" }}
+                      variant="square"
+                      alt="logo"
+                      src={`${productList.logo}`}
+                    />
+                  </Typography>
+
+                  <Typography sx={{ marginTop: "25px" }}>
+                    <Chip
+                      component={"span"}
+                      label={`${productList.label}`}
+                      sx={{
+                        color: AppColor.white,
+                        bgcolor: AppColor.orange,
+                        border: "none",
+                      }}
+                    />
+                  </Typography>
+                </>
+              )}
               <CustomTooltip title={`${productList.name}`}>
                 <Typography
                   onClick={() =>
@@ -218,7 +227,7 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
                   variant="body1"
                   sx={{
                     fontSize: "14px",
-                    fontWeight: "600",
+                    fontWeight: `${!isProductRelated ? "600" : "500"}`,
                     m: "10px 0",
                     textAlign: "left",
                     height: "38px",
@@ -234,38 +243,42 @@ const ProductLists: React.FC<ProductListsProps> = ({ isHovered }) => {
                   {productList.name}
                 </Typography>
               </CustomTooltip>
-              <Typography
-                component={"span"}
-                variant="body1"
-                sx={{ fontSize: "14px", textDecorationLine: "line-through" }}
-              >
-                {`${productList.unprice} đ`}
-              </Typography>
+              {!isProductRelated && (
+                <Typography
+                  component={"span"}
+                  variant="body1"
+                  sx={{ fontSize: "14px", textDecorationLine: "line-through" }}
+                >
+                  {`${productList.unprice} đ`}
+                </Typography>
+              )}
               <Typography
                 component={"span"}
                 variant="body1"
                 sx={{
-                  fontSize: "21px",
+                  fontSize: `${!isProductRelated ? "21px" : "16px"}`,
                   fontWeight: "600",
                   color: AppColor.sidebarButtonColor,
                 }}
               >
                 {`${productList.price} đ`}
               </Typography>
-              <Typography
-                component={"span"}
-                variant="body1"
-                sx={{
-                  fontSize: "12px",
-                  marginTop: "10px",
-                  width: "100%",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                }}
-              >
-                {productList.promotion}
-              </Typography>
+              {!isProductRelated && (
+                <Typography
+                  component={"span"}
+                  variant="body1"
+                  sx={{
+                    fontSize: "12px",
+                    marginTop: "10px",
+                    width: "100%",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                  }}
+                >
+                  {productList.promotion}
+                </Typography>
+              )}
             </Stack>
           </Box>
         </SwiperSlide>

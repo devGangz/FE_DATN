@@ -58,7 +58,7 @@ const HeaderRight: React.FC<HeaderRightProps> = ({}) => {
         </FabStyle>
         <TypographyStyle>Giỏ hàng</TypographyStyle>
       </BoxStyle>
-      <BoxStyle sx={{}} onClick={() => navigate("/cart")}>
+      <BoxStyle onClick={() => navigate("/login")}>
         <FabStyle size="small">
           <Person fontSize="small" />
         </FabStyle>
