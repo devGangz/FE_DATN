@@ -15,8 +15,8 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
     <Tooltip
       TransitionComponent={Zoom}
       title={title}
-      enterDelay={700}
-      enterNextDelay={700}
+      enterDelay={1000}
+      enterNextDelay={1000}
       leaveDelay={200}
       followCursor
       {...rest}

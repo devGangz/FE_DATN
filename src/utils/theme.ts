@@ -140,6 +140,7 @@ let theme = createTheme({
       styleOverrides: {
         indicator: {
           transition: "none",
+          backgroundColor: AppColor.sidebarButtonColor,
         },
       },
     },

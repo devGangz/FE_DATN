@@ -1,25 +1,10 @@
 import React from "react";
 import ProductLists from "../../FeaturedProduct/ProductLists";
-import { Box, Divider, Tab, styled } from "@mui/material";
-import { AppColor } from "../../../constants/color";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { Box } from "@mui/material";
+import { TabContext, TabList } from "@mui/lab";
+import { TabCustom, TabPanelCustom } from "../../../utils/styled";
 
 interface ProductRelatedProps {}
-
-const TabCustom = styled(Tab)({
-  fontSize: 18,
-  fontWeight: 700,
-  color: AppColor.black,
-  "&.MuiTab-root": {
-    textTransform: "none",
-  },
-});
-
-const TabPanelCustom = styled(TabPanel)({
-  "&.MuiTabPanel-root": {
-    padding: "0 0 20px 0",
-  },
-});
 
 const ProductRelated: React.FC<ProductRelatedProps> = ({}) => {
   const [value, setValue] = React.useState("1");

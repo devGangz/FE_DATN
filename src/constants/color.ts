@@ -4,6 +4,7 @@ export const AppColor = {
   sidebarTextColor: "#ed1c24",
   productListTextColor: "#a22327",
   textColor: "rgb(238, 27, 37)",
+  textColorButton: "#dd0000",
   blue: "#00a7d5",
   blue1: "#2287E0",
   red: "#f67166",

@@ -1,6 +1,5 @@
 import { Button, ButtonProps } from "@mui/material";
 import React from "react";
-import { AppColor } from "../../constants/color";
 
 type ICustomButton = ButtonProps & {
   children: React.ReactNode;
@@ -17,8 +16,8 @@ const CustomButton: React.FC<ICustomButton> = ({
   children,
   onClick,
   type = "button",
-  variant = "filled",
-  bgcolor = AppColor.blue,
+  variant = "contained",
+  bgcolor,
   display,
   ...rest
 }) => {
@@ -26,21 +25,15 @@ const CustomButton: React.FC<ICustomButton> = ({
     <Button
       disabled={disabled}
       type={type}
-      variant="contained"
+      variant={variant}
+      onClick={onClick}
       sx={{
-        mt: 3,
-        bgcolor: "white",
-        border: `1px solid ${AppColor.grey}`,
-        fontWeight: "700",
-        color: `${AppColor.grey}`,
-
+        bgcolor: `${bgcolor}`,
         "&:hover": {
-          bgcolor: "white",
-          border: "1px solid #2287E0",
-          color: "#2287E0",
+          bgcolor: `${bgcolor}`,
+          boxShadow: "0 0 6px 0 #333",
         },
       }}
-      onClick={onClick}
       {...rest}
     >
       {children}
