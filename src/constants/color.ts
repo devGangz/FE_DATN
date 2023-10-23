@@ -16,5 +16,6 @@ export const AppColor = {
   black: "#000",
   black1: "#333",
   grey: "#54616C",
+  grey1: "#ddd",
   borderImage: "#e2e2e2",
 };

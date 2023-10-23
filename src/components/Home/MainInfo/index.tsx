@@ -7,6 +7,7 @@ import { AppColor } from "../../../constants/color";
 import CustomButton from "../../CustomButton.tsx";
 import Modal from "../../Modal";
 import ModalInfo from "./ModalInfo";
+import TabContent from "./TabContent";
 
 interface MainInfoProps {}
 
@@ -48,7 +49,7 @@ const MainInfo: React.FC<MainInfoProps> = ({}) => {
           sx={{ width: "66.66666667%", typography: "body1", padding: "0 15px" }}
         >
           <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider", mb: "10px" }}>
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
@@ -63,7 +64,9 @@ const MainInfo: React.FC<MainInfoProps> = ({}) => {
                 <TabCustom disableRipple label="Hình ảnh" value="4" />
               </TabList>
             </Box>
-            <TabPanelCustom value="1"></TabPanelCustom>
+            <TabPanelCustom value="1">
+              <TabContent />
+            </TabPanelCustom>
             <TabPanelCustom value="2"></TabPanelCustom>
           </TabContext>
         </Box>

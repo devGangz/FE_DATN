@@ -52,7 +52,7 @@ const AddressInfo: React.FC<AddressInfoProps> = ({}) => {
       <Map
         height="200px"
         width="100%"
-        urlMap="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1336.2041852612567!2d105.67784317317306!3d18.692866099256477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139ce0e472e306f%3A0x942966940e3f0b4e!2zMTM4IMSQxrDhu51uZyBIw6AgSHV5IFThuq1wLCBIw6AgSHV5IFThuq1wLCBUaMOgbmggcGjhu5EgVmluaCwgTmdo4buHIEFuLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1697770747410!5m2!1svi!2s"
+        urlMap={`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
       />
     </Box>
   );
