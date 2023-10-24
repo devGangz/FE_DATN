@@ -2,10 +2,12 @@ import React from "react";
 import {
   Avatar,
   Button,
+  Container,
   Divider,
   Paper,
   Stack,
   Typography,
+  styled,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import LoginForm from "../../components/LoginForm";
@@ -13,23 +15,21 @@ import { LoginPayload } from "../../types/auth";
 import { useAppDispatch } from "../../redux/hook/useTypedSeletor";
 import { login } from "../../redux/user/userAction";
 import { useGoogleLogin } from "@react-oauth/google";
-import CustomButton from "../../components/CustomButton.tsx";
+import { AppColor } from "../../constants/color";
+
+const TypographyText = styled(Typography)({
+  fontSize: "100px",
+  fontWeight: "700",
+  fontFamily: "Darker Grotesque !important",
+});
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
-
-  const handleLoginSubmit = async (payload: LoginPayload) => {
-    // dispatch(login(payload));
-  };
 
   const googleLogin = useGoogleLogin({
     flow: "auth-code",
     onSuccess: async (codeResponse) => {
       dispatch(login(codeResponse.code));
-      console.log(
-        "🚀 ~ file: index.tsx:29 ~ onSuccess: ~ codeResponse.code:",
-        codeResponse.code
-      );
     },
     onError: (errorResponse) => console.log(errorResponse),
   });
@@ -41,63 +41,55 @@ const LoginPage: React.FC = () => {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
-        backgroundColor: "#233588",
+        backgroundColor: AppColor.white,
       }}
     >
-      <Paper
-        elevation={4}
+      <Container
+        maxWidth={"lg"}
         sx={{
-          mx: "auto",
-          padding: "20px 32px 32px 32px",
-          maxWidth: "450px",
-          textAlign: "center",
-          minHeight: "475px",
-          gap: 3,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          height: "100vh",
+          gap: 4,
         }}
       >
-        <Stack direction={"column"} spacing={2}>
-          <Box
-            display={"flex"}
-            justifyContent={"center"}
-            sx={{ gap: 2, pt: 3, pb: 5 }}
-          >
-            <Avatar
-              sx={{ width: 36, height: 36 }}
-              variant="square"
-              src="../images/logo.svg"
-              alt="logo"
-            />
-            <Typography component={"h1"} variant="h5" fontWeight={"700"}>
-              ĐĂNG NHẬP HỆ THỐNG
-            </Typography>
-          </Box>
-          <Box sx={{ bottom: 0 }}>
-            <LoginForm onSubmit={handleLoginSubmit} />
-          </Box>
-          <Divider />
-          <Box sx={{ width: "100%" }}>
-            <Button
-              variant="contained"
-              fullWidth
-              sx={{
-                bgcolor: "white",
-                color: "#54616C",
-                border: "1px solid #54616C",
-                fontWeight: "700",
-
-                "&:hover": {
-                  bgcolor: "white",
-                  border: "1px solid #2287E0",
-                  color: "#2287E0",
-                },
-              }}
-              onClick={googleLogin}
-            >
-              Login with Google
-            </Button>
-          </Box>
-        </Stack>
-      </Paper>
+        <img
+          style={{ transform: "scale(1.1)" }}
+          src="../images/logoSTS.svg"
+          alt="logo"
+        />
+        <Box sx={{ display: "flex" }}>
+          <TypographyText>Welcome to&nbsp;</TypographyText>
+          <TypographyText color={"rgb(214, 32, 21)"}>STS</TypographyText>
+        </Box>
+        <Button
+          variant="contained"
+          onClick={googleLogin}
+          sx={{
+            zIndex: 1,
+            width: "fit-content",
+            border: "4px solid rgb(214, 32, 21) ",
+            borderRadius: "12px",
+            bgcolor: "rgb(252, 233, 232)",
+            color: AppColor.black,
+            fontSize: "24px",
+            fontWeight: "500",
+            padding: "8px 40px",
+            textTransform: "none",
+            "&:hover": {
+              bgcolor: "rgba(255, 77, 79, 0.04)",
+            },
+          }}
+        >
+          Login in with Google
+        </Button>
+        <img
+          style={{ height: "40%", position: "absolute", bottom: 0 }}
+          src="../images/imageLogin.png"
+          alt="imageLogin"
+        />
+      </Container>
     </Box>
   );
 };

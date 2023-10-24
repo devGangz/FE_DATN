@@ -2,6 +2,7 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook/useTypedSeletor";
 import { useEffect } from "react";
 import { getUserId } from "../utils/storage";
+import { getUser } from "../redux/user/userAction";
 
 const PrivateRoute: React.FC = () => {
   const dispatch = useAppDispatch();

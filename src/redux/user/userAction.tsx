@@ -8,7 +8,10 @@ export const login = createAsyncThunk(
   "/auth",
   async (param: string, { rejectWithValue }) => {
     try {
-      const { data } = await axiosClient.post("/auth/google/callback", param);
+      const { data } = await axiosClient.post("/auth/google", {
+        code: param,
+      });
+      console.log("🚀 ~ file: userAction.tsx:14 ~ data:", data);
       return data;
     } catch (error: any) {
       return rejectWithValue(error?.response.data.message);
