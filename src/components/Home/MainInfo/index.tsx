@@ -83,22 +83,39 @@ const MainInfo: React.FC<MainInfoProps> = ({}) => {
           >
             Thông số kỹ thuật
           </Typography>
-          <Box sx={{ maxHeight: "400px", overflow: "hidden" }}>
+          <Box
+            sx={{
+              maxHeight: "400px",
+              overflow: "hidden",
+              position: "relative",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: "90%",
+                left: 0,
+                right: 0,
+                width: "100%",
+                height: "10%",
+                zIndex: 1,
+                background: "linear-gradient(rgba(255,255,255,0),white)",
+              },
+            }}
+          >
             <CustomerInfo
               padding={"0"}
               listStyleType="none"
               title="Bộ xử lý"
-              textColor={AppColor.green1}
+              textColor={AppColor.sidebarButtonColor}
               data={processors}
-              marginItem={"14px 0"}
+              paddingItem={"14px 0 14px 10px"}
             />
             <CustomerInfo
               padding={"0"}
-              textColor={AppColor.green1}
               listStyleType="none"
+              textColor={AppColor.sidebarButtonColor}
               title="Bộ nhớ RAM, Ổ cứng"
               data={memoryHardDrive}
-              marginItem={"14px 0"}
+              paddingItem={"14px 0 14px 10px"}
             />
           </Box>
           <CustomButton

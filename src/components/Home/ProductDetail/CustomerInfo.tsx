@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Typography, styled } from "@mui/material";
+import { Box, List, ListItem, Typography } from "@mui/material";
 import React from "react";
 import { AppColor } from "../../../constants/color";
 
@@ -8,9 +8,12 @@ interface CustomerInfoProps {
   listStyleType?: string;
   padding?: string | number;
   textColor?: string;
+  color?: string;
+  bgcolor?: string;
   margin?: string | number;
-  marginItem?: string | number;
+  paddingItem?: string | number;
   hoverColor?: string;
+  fontWeightTitle?: string;
 }
 
 const CustomerInfo: React.FC<CustomerInfoProps> = ({
@@ -19,9 +22,12 @@ const CustomerInfo: React.FC<CustomerInfoProps> = ({
   listStyleType,
   padding,
   textColor,
+  color,
   margin,
-  marginItem,
+  paddingItem,
   hoverColor,
+  bgcolor,
+  fontWeightTitle,
 }) => {
   return (
     <Box sx={{ margin: `${margin}` }}>
@@ -30,8 +36,8 @@ const CustomerInfo: React.FC<CustomerInfoProps> = ({
         variant="body1"
         sx={{
           padding: "5px 0",
-          fontSize: "14px",
-          fontWeight: 700,
+          fontSize: "16px",
+          fontWeight: `${fontWeightTitle}`,
           color: `${textColor}`,
         }}
       >
@@ -44,15 +50,17 @@ const CustomerInfo: React.FC<CustomerInfoProps> = ({
           padding: `${padding}`,
         }}
       >
-        {data.map((info) => (
+        {data.map((info, index) => (
           <ListItem
             key={info}
             sx={{
               cursor: "pointer",
               display: "list-item",
-              padding: "1px 0",
-              margin: `${marginItem}`,
-              color: `${textColor}`,
+              padding: `${paddingItem ?? "none"}`,
+              color: `${color}`,
+              bgcolor: `${
+                bgcolor ?? index % 2 === 0 ? AppColor.white : AppColor.grey1
+              }`,
               "&:hover": {
                 color: `${hoverColor}`,
               },

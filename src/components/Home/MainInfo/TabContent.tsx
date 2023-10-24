@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CustomButton from "../../CustomButton.tsx";
 import { AppColor } from "../../../constants/color";
 import ProductReview from "./ProductReview";
@@ -8,14 +8,15 @@ import Comments from "./Comments";
 interface TabContentProps {}
 
 const TabContent: React.FC<TabContentProps> = ({}) => {
+  const [openHeight, setOpenHeight] = useState<boolean>(false);
   return (
     <>
       <Box
         sx={{
-          maxHeight: "1000px",
+          maxHeight: `${openHeight ? "none" : "1000px"}`,
           overflow: "hidden",
           marginBottom: "20px",
-          position: "relative",
+          position: `${openHeight ? "none" : "relative"}`,
           "&::before": {
             content: '""',
             position: "absolute",
@@ -125,10 +126,29 @@ const TabContent: React.FC<TabContentProps> = ({}) => {
           video 4K ProRes được thực hiện trên iPhone 13 Pro, đồng thời chuyển
           đổi dữ liệu sang định dạng ProRes nhanh gấp ba lần so với trước đây.
         </Typography>
+        <Typography
+          component={"h3"}
+          variant="body1"
+          sx={{ fontSize: 17, fontWeight: 700, margin: "16px 0" }}
+        >
+          Chỉnh sửa video chuyên nghiệp như studio
+        </Typography>
+        <Typography
+          component={"p"}
+          variant="body1"
+          sx={{ fontSize: "14px", fontWeight: 500, margin: "14px 0" }}
+        >
+          MacBook Pro M2 2022 sẽ khiến bạn thực sự bất ngờ về năng lực mã hóa và
+          giải mã định dạng ProRes. Bạn có thể phát và chỉnh sửa tối đa 11 luồng
+          video 4K ProRes và tối đa 2 luồng video 8K ProRes – bao gồm cả những
+          video 4K ProRes được thực hiện trên iPhone 13 Pro, đồng thời chuyển
+          đổi dữ liệu sang định dạng ProRes nhanh gấp ba lần so với trước đây.
+        </Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <CustomButton
           sx={{
+            display: `${openHeight ? "none" : "block"}`,
             border: `1px solid ${AppColor.textColorButton}`,
             bgcolor: AppColor.white,
             color: AppColor.textColorButton,
@@ -143,6 +163,7 @@ const TabContent: React.FC<TabContentProps> = ({}) => {
               color: AppColor.white,
             },
           }}
+          onClick={() => setOpenHeight(true)}
         >
           Xem thêm
         </CustomButton>

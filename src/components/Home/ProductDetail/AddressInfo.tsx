@@ -28,15 +28,21 @@ const AddressInfo: React.FC<AddressInfoProps> = ({}) => {
       <CustomerInfo
         margin={"0 0 20px 0"}
         padding={"0 0 0 24px"}
+        paddingItem={"0"}
         listStyleType="disc"
         title={"Trợ giúp"}
         data={helps}
+        fontWeightTitle="700"
+        bgcolor={AppColor.white}
         hoverColor={AppColor.textColor}
       />
       <CustomerInfo
         margin={"0 0 20px 0"}
         listStyleType="disc"
+        paddingItem={"0"}
         padding={"0 0 0 24px"}
+        bgcolor={AppColor.white}
+        fontWeightTitle="700"
         title={"Điện thoại tư vấn - đặt hàng:"}
         data={advises}
         hoverColor={AppColor.textColor}
@@ -44,7 +50,10 @@ const AddressInfo: React.FC<AddressInfoProps> = ({}) => {
       <CustomerInfo
         margin={"0 0 20px 0"}
         padding={"0 0 0 24px"}
+        paddingItem={"0"}
         listStyleType="disc"
+        bgcolor={AppColor.white}
+        fontWeightTitle="700"
         title={"Địa chỉ mua hàng:"}
         data={address}
         hoverColor={AppColor.textColor}

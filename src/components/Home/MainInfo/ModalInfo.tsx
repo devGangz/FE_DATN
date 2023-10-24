@@ -61,9 +61,10 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ handleClose, open, data }) => {
               padding={"0"}
               listStyleType="none"
               title="Bộ xử lý"
-              textColor={AppColor.black}
+              color={AppColor.black}
+              textColor={AppColor.sidebarButtonColor}
               data={data}
-              marginItem={"14px 0"}
+              paddingItem={"14px 0 14px 10px"}
             />
           </DialogContentText>
           <DialogContentText sx={{ padding: "0" }}>
@@ -71,9 +72,10 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ handleClose, open, data }) => {
               padding={"0"}
               listStyleType="none"
               title="Bộ xử lý"
-              textColor={AppColor.black}
+              color={AppColor.black}
+              textColor={AppColor.sidebarButtonColor}
               data={data}
-              marginItem={"14px 0"}
+              paddingItem={"14px 0 14px 10px"}
             />
           </DialogContentText>
           <DialogContentText sx={{ padding: "0" }}>
@@ -81,9 +83,10 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ handleClose, open, data }) => {
               padding={"0"}
               listStyleType="none"
               title="Bộ xử lý"
-              textColor={AppColor.black}
+              color={AppColor.black}
+              textColor={AppColor.sidebarButtonColor}
               data={data}
-              marginItem={"14px 0"}
+              paddingItem={"14px 0 14px 10px"}
             />
           </DialogContentText>
         </BoxStyle>
