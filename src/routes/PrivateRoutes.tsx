@@ -12,7 +12,7 @@ const PrivateRoute: React.FC = () => {
 
   useEffect(() => {
     const userId = getUserId();
-    // if (userId) dispatch(getUser(userId));
+    if (userId) dispatch(getUser(userId));
   }, [dispatch]);
 
   return accessToken ? <Outlet /> : <Navigate to="/home" />;

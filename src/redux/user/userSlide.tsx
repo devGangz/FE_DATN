@@ -3,10 +3,12 @@ import {
   clearStorage,
   getAccessToken,
   setAccessToken,
+  setUserId,
 } from "../../utils/storage";
 import { getUser, login } from "./userAction";
 import { User } from "../../types/user";
 import { toast } from "sonner";
+import jwt_decode from "jwt-decode";
 
 interface UserState {
   isLoadingUser: boolean;
@@ -37,6 +39,7 @@ const userSlice = createSlice({
         state.isLoadingUser = false;
         setAccessToken(action.payload.access_token);
         state.accessToken = action.payload.access_token;
+        setUserId(action.payload.data.id);
       })
 
       // get user

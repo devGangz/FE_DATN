@@ -1,17 +1,6 @@
 import React from "react";
-import {
-  Avatar,
-  Button,
-  Container,
-  Divider,
-  Paper,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Button, Container, Typography, styled } from "@mui/material";
 import { Box } from "@mui/system";
-import LoginForm from "../../components/LoginForm";
-import { LoginPayload } from "../../types/auth";
 import { useAppDispatch } from "../../redux/hook/useTypedSeletor";
 import { login } from "../../redux/user/userAction";
 import { useGoogleLogin } from "@react-oauth/google";
