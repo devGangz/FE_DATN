@@ -8,7 +8,6 @@ import {
 import { getUser, login } from "./userAction";
 import { User } from "../../types/user";
 import { toast } from "sonner";
-import jwt_decode from "jwt-decode";
 
 interface UserState {
   isLoadingUser: boolean;

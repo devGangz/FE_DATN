@@ -10,7 +10,6 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import News from "./pages/News";
 import BuildPC from "./pages/BuildPC";
-import Map from "./components/Map";
 
 const App: React.FC = () => {
   return (
